@@ -8,6 +8,8 @@
 #This code deleted all rows in the “CountAs” column that contained the word “leak”.
 #Also keep in mind that Python is case sensitive for text criteria (and in general).
 
+#This code uses the python package pandas, which is used for data analysis. 
+
 import pandas as pd
 
 #Define data and load your csv file:
@@ -25,3 +27,5 @@ filtered_data.to_csv('My_New_file.csv')
 
 #Note: You can also filter rows based on criteria, such as a numerical value range.
 #I found this Youtube tutorial to be very helpful: https://www.youtube.com/watch?v=YPItfQ87qjM&t=108s
+#Keep in mind there are likely many other ways to do this. This is just one example.
+

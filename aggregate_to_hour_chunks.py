@@ -4,9 +4,6 @@ This aggregates the Volume data into 1-hour bins.
 import pandas as pd
 from tqdm import tqdm
 
-#NOTE at the moment ignoring house numbers, just total over all houses.
-
-# to create a new dataframe, will populate these lists:
 def sum_over_hours(df):
     volumes = []
     durations = []
@@ -28,8 +25,7 @@ def sum_over_hours(df):
             samehour = df['hour'][i+1] == df['hour'][i]
             samehouse = df['House'][i+1] == df['House'][i]
             same_event = df['Event'][i+1] == df['Event'][i]
-            #TODO this may not be enough to aggregate by house, if the houses or events alternate ie in sequence.. A B A A..
-            #if samehour:
+           
             if samehour and samehouse and same_event:
                 vol = vol + df['Volume'][i+1]
                 dur = dur + df['Duration'][i+1]
@@ -45,7 +41,7 @@ def sum_over_hours(df):
                 Event.append(df['Event'][i])
                 House.append(df['House'][i])
 
-                #TODO what to do with Duration, Peak etc?
+            
                 vol = df['Volume'][i+1] #reset this AFTER appending vol.
                 dur = df['Duration'][i+1]
 
